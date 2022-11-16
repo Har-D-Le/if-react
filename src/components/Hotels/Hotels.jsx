@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Hotels.css';
+import HotelItem from './HotelItem';
 
 function Hotels({ data }) {
   return (
@@ -7,17 +9,23 @@ function Hotels({ data }) {
       <h2 className="homes-h2">Homes guests loves</h2>
       <div className="col-12 col-ss-6 homes-content">
         {data.map((item) => (
-          <div className="col-3 col-ss-3 homes-content-wrap" key={item.id}>
-            <img className="homes-img" src={item.imageUrl} alt="" />
-            <div className="homes-item">{item.name}</div>
-            <div className="homes-item-location">
-              {item.city},{item.country}
-            </div>
-          </div>
+          <HotelItem key={item.id} item={item} />
         ))}
       </div>
     </div>
   );
 }
+
+Hotels.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      city: PropTypes.string,
+      country: PropTypes.string,
+      imageUrl: PropTypes.string
+    })
+  ).isRequired
+};
 
 export default Hotels;
