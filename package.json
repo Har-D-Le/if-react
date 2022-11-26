@@ -23,6 +23,11 @@
     "lint:fix": "eslint --fix",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
