@@ -1,0 +1,256 @@
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+label {
+  font-weight: 400;
+  font-size: 18px;
+  position: absolute;
+}
+
+input:focus + .label-destination {
+  transform: translateY(-4rem);
+  transition: 0.2s ease-in;
+  color: #ffffff;
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #383838;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.start {
+  background-image: url("./src/images/trip-house.svg");
+  background-position: top center;
+  height: 100vh;
+}
+
+.header-site {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 51px;
+  margin-bottom: 196px;
+  align-items: center;
+  color: #ffffff;
+}
+
+.site-logo {
+  width: 205px;
+  height: 40px;
+}
+
+.header-site-navigation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 24px;
+}
+
+.nav-item-1:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 4px;
+  background-color: #f5bd41;
+  bottom: -5px;
+  left: 6px;
+}
+
+.nav-item-1:hover:after {
+  width: 50px;
+  transition: all 700ms;
+}
+
+.nav-item-2 {
+  position: relative;
+  margin-left: 24px;
+}
+
+.nav-item-2:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 4px;
+  background-color: #f5bd41;
+  bottom: -14px;
+  left: 5px;
+}
+
+.nav-item-2:hover:after {
+  width: 103px;
+  transition: all 600ms;
+}
+
+.nav-day-night {
+  margin-left: 48px;
+  height: 30px;
+  width: 30px;
+}
+
+.link-nav-day-night {
+  position: relative;
+}
+
+.link-nav-day-night:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 4px;
+  background-color: #f5bd41;
+  bottom: -10px;
+  right: 5px;
+}
+
+.link-nav-day-night:hover:after {
+  width: 20px;
+  transition: all 800ms;
+}
+
+.nav_account_circle {
+  margin-left: 24px;
+  height: 40px;
+  width: 40px;
+}
+
+.link-nav_account_circle {
+  position: relative;
+}
+
+.link-nav_account_circle:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  height: 4px;
+  background-color: #f5bd41;
+  bottom: -5px;
+  right: 5px;
+}
+
+.link-nav_account_circle:hover:after {
+  width: 29px;
+  transition: all 750ms;
+}
+
+.nav_menu {
+  display: none;
+}
+
+.page {
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.h1-block {
+  margin: 0 0 145px;
+}
+
+.label-destination {
+  top: 22px;
+  left: 24px;
+  color: #383838;
+}
+
+.desktop-form {
+  display: flex;
+  position: relative;
+  height: 64px;
+  width: 100%;
+  margin-bottom: 120px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.destination {
+  width: 37%;
+  padding-left: 2%;
+  border-radius: 8px;
+  border: none;
+}
+
+.desktop-form-date-wrapper {
+  position: relative;
+  display: flex;
+  width: 21%;
+  border: 3px solid #f5bd41;
+  border-radius: 8px;
+}
+
+.label-date-check-in {
+  position: absolute;
+  top: -2.6rem;
+  right: 2rem;
+  color: #ffffff;
+}
+
+.label-date-check-out {
+  position: absolute;
+  top: -2.6rem;
+  left: 1rem;
+  color: #ffffff;
+}
+
+.date {
+  border: none;
+}
+
+.dash {
+  position: absolute;
+  top: -2.6rem;
+  left: 7rem;
+  color: #ffffff;
+}
+
+.rooms {
+  text-align: center;
+  width: 26%;
+  border-radius: 8px;
+  border: none;
+}
+
+.search {
+  width: 16%;
+  background: #3077c6;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.m-form {
+  display: none;
+}
+
+.apps {
+  display: flex;
+  justify-content: center;
+}
+
+.google-play {
+  width: 135px;
+  height: 40px;
+  margin-right: 17px;
+}
+
+.app-store {
+  width: 120px;
+  height: 40px;
+}
