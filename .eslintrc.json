@@ -21,6 +21,8 @@
   "rules": {
     "react/jsx-filename-extension": "off",
     "comma-dangle": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
     "import/no-named-as-default": "off",
     "react/jsx-one-expression-per-line" : "off",
     "jsx-a11y/label-has-associated-control": [ "error", {

@@ -36,7 +36,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .start {
-  background-image: url("./src/images/trip-house.svg");
+  background-image: url("http://localhost:8080/images/trip-house.svg");
   background-position: top center;
   height: 100vh;
 }
