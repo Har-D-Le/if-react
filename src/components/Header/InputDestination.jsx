@@ -20,8 +20,8 @@ function InputDestination({ value, onChange }) {
 }
 
 InputDestination.propTypes = {
-  onChange: propTypes.func,
-  value: propTypes.string
+  onChange: PropTypes.func,
+  value: PropTypes.string
 };
 
 export default InputDestination;

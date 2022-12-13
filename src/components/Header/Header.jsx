@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Navigation from './Navigation';
 import Form from './Form';
 import './Header.css';
-import { googleStore, appStore } from '../../../public/images/index';
+import { googleStore, appStore } from '../../../public/images';
 
 function Header({ data, setHotelData }) {
   return (
