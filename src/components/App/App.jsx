@@ -7,19 +7,23 @@ import Header from '../Header/Header';
 import data from '../../constants/data';
 
 function App() {
-  const [hotelData, setHotelData] = useState([]);
+  const [hotelData, setHotelData] = useState(null);
 
-  const filteredHotels = data.filter(
-    (item) =>
-      item.name === `${hotelData}` ||
-      item.city === `${hotelData}` ||
-      item.country === `${hotelData}`
-  );
+  const getSerchedHotel = (search) => {
+      const filteredHotels = data.filter(
+          (item) =>
+              item.name === `${search}` ||
+              item.city === `${search}` ||
+              item.country === `${search}`
+      );
+      setHotelData(filteredHotels)
+  }
+
   return (
     <>
-      <Header data={hotelData} setHotelData={setHotelData} />
+      <Header data={hotelData} setHotelData={getSerchedHotel} />
       <div className="container">
-        {!!hotelData.length && <Hotels dataHotels={filteredHotels} title="Available hotels" />}
+        {!!hotelData && <Hotels dataHotels={hotelData} title="Available hotels" />}
 
         <Hotels dataHotels={data.slice(0, 4)} title="Homes guests loves" />
       </div>

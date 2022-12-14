@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import InputDestination from './InputDestination';
 
-function Form({ data, setHotelData }) {
-  const [destination, setDestination] = useState(data);
+function Form({ setHotelData }) {
+  const [destination, setDestination] = useState('');
+  const handleChange = (e) => setDestination(e.target.value)
   const handleSubmit = (e) => {
     e.preventDefault();
     setHotelData(destination);
   };
   return (
     <form className="desktop-form" action="/" method="GET" onSubmit={handleSubmit}>
-      <InputDestination value={destination} onChange={(e) => setDestination(e.target.value)} />
+      <InputDestination value={destination} onChange={handleChange} />
       <div className="desktop-form-date-wrapper">
         <input className="date" id="check-in-date" type="date" name="date" />
         <label className="label-date-check-in" htmlFor="check-in-date">
@@ -28,6 +29,7 @@ function Form({ data, setHotelData }) {
         type="text"
         name="rooms"
         value="2 Adults — 0 Children — 1 Room"
+        readOnly
       />
       <button type="submit" className="search">
         Search
@@ -38,7 +40,6 @@ function Form({ data, setHotelData }) {
 
 Form.propTypes = {
   setHotelData: PropTypes.func,
-  data: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Form;

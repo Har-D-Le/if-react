@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navigation from './Navigation';
-import Form from './Form';
+import Navigation from './components/Navigation';
+import Form from './components/Form';
 import './Header.css';
 import { googleStore, appStore } from '../../../public/images';
 
-function Header({ data, setHotelData }) {
+function Header({ setHotelData }) {
   return (
     <section className="start">
       <div className="container">
@@ -17,7 +17,7 @@ function Header({ data, setHotelData }) {
               to live, work or just relax
             </h1>
           </div>
-          <Form data={data} setHotelData={setHotelData} />
+          <Form setHotelData={setHotelData} />
         </div>
         <div className="apps">
           <img src={googleStore} alt={googleStore} className="google-play" />
@@ -30,7 +30,6 @@ function Header({ data, setHotelData }) {
 
 Header.propTypes = {
   setHotelData: PropTypes.func,
-  data: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Header;
