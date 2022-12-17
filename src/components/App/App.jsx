@@ -7,9 +7,9 @@ import Header from '../Header/Header';
 import data from '../../constants/data';
 
 function App() {
-  const [hotelData, setHotelData] = useState(null);
+  const [hotelData, setHotelData] = useState([]);
 
-  const getSerchedHotel = (search) => {
+  const getSearchedHotel = (search) => {
       const filteredHotels = data.filter(
           (item) =>
               item.name === `${search}` ||
@@ -21,9 +21,9 @@ function App() {
 
   return (
     <>
-      <Header data={hotelData} setHotelData={getSerchedHotel} />
+      <Header setHotelData={getSearchedHotel} />
       <div className="container">
-        {!!hotelData && <Hotels dataHotels={hotelData} title="Available hotels" />}
+        {hotelData.length && <Hotels dataHotels={hotelData} title="Available hotels" />}
 
         <Hotels dataHotels={data.slice(0, 4)} title="Homes guests loves" />
       </div>

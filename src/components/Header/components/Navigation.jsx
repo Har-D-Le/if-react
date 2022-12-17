@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { logo, dayNight, accountCircle } from '../../../../public/images';
 
 function Navigation() {
