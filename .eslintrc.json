@@ -20,6 +20,22 @@
   ],
   "rules": {
     "react/jsx-filename-extension": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-named-as-default": "off",
+    "react/jsx-one-expression-per-line" : "off",
+    "react/require-default-props" : "off",
+    "react/forbid-prop-types" : "off",
+    "jsx-a11y/label-has-associated-control": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "jsx-a11y/label-has-for": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }]
   }
 }
