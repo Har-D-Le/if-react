@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import Navigation from './components/Navigation';
 import Form from './components/Form';
+
 import './Header.css';
 import { googleStore, appStore } from '../../../public/images';
 
-function Header({ setHotelData }) {
+function Header({ hotelData, setHotelData }) {
   return (
     <section className="start">
       <div className="container">
@@ -18,7 +19,7 @@ function Header({ setHotelData }) {
               to live, work or just relax
             </h1>
           </div>
-          <Form setHotelData={setHotelData} />
+          <Form hotelData={hotelData} setHotelData={setHotelData} />
         </div>
         <div className="apps">
           <img src={googleStore} alt={googleStore} className="google-play" />
@@ -31,6 +32,7 @@ function Header({ setHotelData }) {
 
 Header.propTypes = {
   setHotelData: PropTypes.func,
+  hotelData: PropTypes.string
 };
 
 export default Header;
