@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Hotels.css';
 
 function HotelItem({ item }) {
@@ -15,13 +16,7 @@ function HotelItem({ item }) {
 }
 
 HotelItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    imageUrl: PropTypes.string
-  }).isRequired
+  item: PropTypes.object.isRequired
 };
 
 export default HotelItem;

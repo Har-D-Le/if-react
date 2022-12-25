@@ -13,11 +13,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "startWebpack": "webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --hot --mode development",
     "buildWebpack": "webpack --mode production",
     "lint": "eslint --fix ./src --ext .js,.jsx",
     "prepare": "husky install"

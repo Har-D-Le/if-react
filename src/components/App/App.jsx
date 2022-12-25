@@ -1,31 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Hotels from '../Hotels/Hotels';
 import Header from '../Header/Header';
 
-import data from '../../constants/data';
-
 function App() {
-  const [hotelData, setHotelData] = useState([]);
+  const [destinationValue, setDestinationValue] = useState('');
 
-  const getSearchedHotel = (search) => {
-      const filteredHotels = data.filter(
-          (item) =>
-              item.name === `${search}` ||
-              item.city === `${search}` ||
-              item.country === `${search}`
-      );
-      setHotelData(filteredHotels)
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [defaultHotels, setDefaultHotels] = useState(null);
+  const [availableHotels, setAvailableHotels] = useState(null);
+
+  const handleDestinationChange = (destination) => {
+    setDestinationValue(destination);
+  };
+
+  const url = new URL('https://if-student-api.onrender.com/api/hotels')
+
+  useEffect(() => {
+    fetch(`${url}/popular`)
+      .then((res) => res.json())
+      .then((result) => {
+        setIsLoading(true);
+        setDefaultHotels(result);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error);
+      });
+  }, []);
+
+  const handleSearch = useEffect(() => {
+    if (destinationValue) {
+      url.searchParams.set('search', `${destinationValue}`);
+      fetch(`${url}`)
+          .then((res) => res.json())
+          .then((result) => {
+            setIsLoading(true);
+            setAvailableHotels(result);
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            setError(error);
+          });
+    }
+  }, [destinationValue]);
+
+  if (error) {
+    return <div>error: {error.message}</div>;
+  }
+
+  if (!isLoading) {
+    return <div>Loading...</div>;
   }
 
   return (
     <>
-      <Header setHotelData={getSearchedHotel} />
+      <Header hotelData={destinationValue} setHotelData={handleDestinationChange} handleSearch={handleSearch} />
       <div className="container">
-        {hotelData.length && <Hotels dataHotels={hotelData} title="Available hotels" />}
+        {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 
-        <Hotels dataHotels={data.slice(0, 4)} title="Homes guests loves" />
+        {defaultHotels && <Hotels hotels={defaultHotels.slice(0, 4)} title="Homes guests loves" />}
       </div>
     </>
   );
