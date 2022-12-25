@@ -8,7 +8,7 @@ function App() {
   const [destinationValue, setDestinationValue] = useState('');
 
   const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [defaultHotels, setDefaultHotels] = useState(null);
   const [availableHotels, setAvailableHotels] = useState(null);
@@ -17,45 +17,48 @@ function App() {
     setDestinationValue(destination);
   };
 
+  const url = new URL('https://if-student-api.onrender.com/api/hotels')
+
   useEffect(() => {
-    fetch('https://if-student-api.onrender.com/api/hotels/popular')
+    fetch(`${url}/popular`)
       .then((res) => res.json())
       .then((result) => {
-        setIsLoaded(true);
+        setIsLoading(true);
         setDefaultHotels(result);
       })
       .catch((error) => {
-        setIsLoaded(true);
+        setIsLoading(false);
         setError(error);
       });
   }, []);
 
-  useEffect(() => {
+  const handleSearch = useEffect(() => {
     if (destinationValue) {
-      const url = new URL('https://if-student-api.onrender.com/api/hotels');
       url.searchParams.set('search', `${destinationValue}`);
       fetch(`${url}`)
-        .then((res) => res.json())
-        .then((result) => {
-          setIsLoaded(true);
-          setAvailableHotels(result);
-        })
-        .catch((error) => {
-          setIsLoaded(true);
-          setError(error);
-        });
+          .then((res) => res.json())
+          .then((result) => {
+            setIsLoading(true);
+            setAvailableHotels(result);
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            setError(error);
+          });
     }
   }, [destinationValue]);
 
   if (error) {
     return <div>error: {error.message}</div>;
   }
-  if (!isLoaded) {
+
+  if (!isLoading) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
-      <Header hotelData={destinationValue} setHotelData={handleDestinationChange} />
+      <Header hotelData={destinationValue} setHotelData={handleDestinationChange} handleSearch={handleSearch} />
       <div className="container">
         {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 

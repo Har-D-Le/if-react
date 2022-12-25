@@ -7,7 +7,7 @@ import Form from './components/Form';
 import './Header.css';
 import { googleStore, appStore } from '../../../public/images';
 
-function Header({ hotelData, setHotelData }) {
+function Header({ hotelData, setHotelData, handleSearch }) {
   return (
     <section className="start">
       <div className="container">
@@ -19,7 +19,7 @@ function Header({ hotelData, setHotelData }) {
               to live, work or just relax
             </h1>
           </div>
-          <Form hotelData={hotelData} setHotelData={setHotelData} />
+          <Form hotelData={hotelData} setHotelData={setHotelData} handleSearch={handleSearch} />
         </div>
         <div className="apps">
           <img src={googleStore} alt={googleStore} className="google-play" />

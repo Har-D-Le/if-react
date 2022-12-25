@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import InputDestination from './InputDestination';
 
-function Form({ hotelData, setHotelData }) {
+function Form({ hotelData, setHotelData, handleSearch }) {
   const [destination, setDestination] = useState(hotelData);
 
   const handleChange = (e) => setDestination(e.target.value);
@@ -12,11 +12,12 @@ function Form({ hotelData, setHotelData }) {
     e.preventDefault();
     setHotelData(destination);
     setDestination('');
+    handleSearch;
   };
 
   return (
     <form className="desktop-form" action="/" method="GET" onSubmit={handleSubmit}>
-      <InputDestination value={destination} onChange={handleChange} />
+      <InputDestination lableTransition={destination != ''} value={destination} onChange={handleChange}/>
       <div className="desktop-form-date-wrapper">
         <input className="date" id="check-in-date" type="date" name="date" />
         <label className="label-date-check-in" htmlFor="check-in-date">
@@ -44,6 +45,7 @@ function Form({ hotelData, setHotelData }) {
 }
 
 Form.propTypes = {
+  handleSearch: PropTypes.func,
   setHotelData: PropTypes.func,
   hotelData: PropTypes.string
 };
