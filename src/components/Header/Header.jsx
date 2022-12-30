@@ -31,6 +31,7 @@ function Header({ hotelData, setHotelData, handleSearch }) {
 }
 
 Header.propTypes = {
+  handleSearch: PropTypes.func,
   setHotelData: PropTypes.func,
   hotelData: PropTypes.string
 };

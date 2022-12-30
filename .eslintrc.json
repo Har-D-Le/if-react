@@ -19,6 +19,8 @@
     "prettier"
   ],
   "rules": {
+    "react/button-has-type": "off",
+    "prettier/prettier": 0,
     "react/jsx-filename-extension": "off",
     "comma-dangle": "off",
     "operator-linebreak": "off",
@@ -26,7 +28,22 @@
     "import/no-named-as-default": "off",
     "react/jsx-one-expression-per-line" : "off",
     "react/require-default-props" : "off",
+    "no-shadow": "off",
+    "no-useless-concat": "off",
     "react/forbid-prop-types" : "off",
+    "jsx-a11y/no-noninteractive-element-interactions": [
+      "error",
+      {
+        "handlers": [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp"
+        ]
+      }
+    ],
     "jsx-a11y/label-has-associated-control": [ "error", {
       "required": {
         "some": [ "nesting", "id"  ]

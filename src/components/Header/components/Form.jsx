@@ -2,9 +2,22 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import InputDestination from './InputDestination';
+import InputDate from './InputDate';
+import FilterPeople from './FilterPeople';
+import InputPeople from './InputPeople';
 
 function Form({ hotelData, setHotelData, handleSearch }) {
   const [destination, setDestination] = useState(hotelData);
+
+  const [dates, setDates] = useState({ startDate: null, endDate: null });
+
+  const [people, setPeople] = useState({
+    adults: 1,
+    children: 0,
+    rooms: 1
+  });
+
+  const [filter, setFilter] = useState(false);
 
   const handleChange = (e) => setDestination(e.target.value);
 
@@ -12,34 +25,28 @@ function Form({ hotelData, setHotelData, handleSearch }) {
     e.preventDefault();
     setHotelData(destination);
     setDestination('');
-    handleSearch;
+    handleSearch();
   };
 
   return (
     <form className="desktop-form" action="/" method="GET" onSubmit={handleSubmit}>
-      <InputDestination lableTransition={destination != ''} value={destination} onChange={handleChange}/>
-      <div className="desktop-form-date-wrapper">
-        <input className="date" id="check-in-date" type="date" name="date" />
-        <label className="label-date-check-in" htmlFor="check-in-date">
-          Check-in
-        </label>
-        <input className="date" id="check-out-date" type="date" name="date" />
-        <label className="label-date-check-out" htmlFor="check-out-date">
-          Check-out
-        </label>
-        <span className="dash">—</span>
-      </div>
-      <input
-        className="rooms"
-        id="rooms"
-        type="text"
-        name="rooms"
-        value="2 Adults — 0 Children — 1 Room"
-        readOnly
+      <InputDestination
+        lableTransition={destination !== ''}
+        value={destination}
+        onChange={handleChange}
+      />
+      <InputDate dates={dates} setDates={setDates} />
+      <InputPeople
+        value={people}
+        onClick={() => {
+          setFilter((filter) => !filter);
+        }}
+        onChange={(e) => setPeople(e.target.value)}
       />
       <button type="submit" className="search">
         Search
       </button>
+      {filter && <FilterPeople people={people} setPeople={setPeople} />}
     </form>
   );
 }

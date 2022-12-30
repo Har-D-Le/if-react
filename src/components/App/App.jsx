@@ -17,7 +17,7 @@ function App() {
     setDestinationValue(destination);
   };
 
-  const url = new URL('https://if-student-api.onrender.com/api/hotels')
+  const url = new URL('https://if-student-api.onrender.com/api/hotels');
 
   useEffect(() => {
     fetch(`${url}/popular`)
@@ -36,15 +36,15 @@ function App() {
     if (destinationValue) {
       url.searchParams.set('search', `${destinationValue}`);
       fetch(`${url}`)
-          .then((res) => res.json())
-          .then((result) => {
-            setIsLoading(true);
-            setAvailableHotels(result);
-          })
-          .catch((error) => {
-            setIsLoading(false);
-            setError(error);
-          });
+        .then((res) => res.json())
+        .then((result) => {
+          setIsLoading(true);
+          setAvailableHotels(result);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setError(error);
+        });
     }
   }, [destinationValue]);
 
@@ -58,7 +58,11 @@ function App() {
 
   return (
     <>
-      <Header hotelData={destinationValue} setHotelData={handleDestinationChange} handleSearch={handleSearch} />
+      <Header
+        hotelData={destinationValue}
+        setHotelData={handleDestinationChange}
+        handleSearch={handleSearch}
+      />
       <div className="container">
         {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 

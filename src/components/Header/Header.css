@@ -188,7 +188,7 @@ input::-webkit-calendar-picker-indicator {
   border: none;
 }
 
-.desktop-form-date-wrapper {
+.form-input-date {
   position: relative;
   display: flex;
   width: 21%;
@@ -196,18 +196,18 @@ input::-webkit-calendar-picker-indicator {
   border-radius: 8px;
 }
 
-.label-date-check-in {
+.form-date-label {
   position: absolute;
   top: -2.6rem;
   right: 2rem;
   color: #ffffff;
 }
 
-.label-date-check-out {
-  position: absolute;
-  top: -2.6rem;
-  left: 1rem;
-  color: #ffffff;
+.react-datepicker__input-container, .form-date {
+  width: 98%;
+  height: 90%;
+  border: none;
+  text-align: center;
 }
 
 .date {
@@ -221,11 +221,18 @@ input::-webkit-calendar-picker-indicator {
   color: #ffffff;
 }
 
-.rooms {
+.form-wrapper-people {
+  display: flex;
   text-align: center;
   width: 26%;
   border-radius: 8px;
   border: none;
+}
+
+.form-input-people {
+  width: 33.3%;
+  border: none;
+  text-align: center;
 }
 
 .search {
@@ -233,6 +240,71 @@ input::-webkit-calendar-picker-indicator {
   background: #3077c6;
   font-weight: 500;
   color: #ffffff;
+}
+
+.form__filter-people-focus {
+width: 13.6rem;
+background-color: #ffffff;
+flex-direction: column;
+padding: 22px;
+font-size: 16px;
+border-radius: 8px;
+position: absolute;
+right: 12rem;
+top: 5rem;
+}
+
+.form__filter-div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.form__filter-div input {
+  width: 19px;
+  height: 29px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.filter-btns-wrapper {
+  display: flex;
+  column-gap: 0.8rem;
+}
+
+.filter-btns-wrapper button {
+  width: 30px;
+  height: 30px;
+  justify-content: flex-end;
+  font-size: 18px;
+  color: #3077c6;
+  background-color: #ffffff;
+  border: solid #3077c6;
+  border-radius: 0;
+}
+
+.filter-label-wrapper {
+  display: flex;
+}
+
+.filter-label {
+  position: relative;
+}
+
+.contextMenu-title {
+  font-size: 12px;
+  margin: 16px 0 12px;
+}
+
+.contextMenu-selector {
+  width: 99px;
+  height: 30px;
+  border-radius: 0;
+  color: #333333;
+  border-color: #3077c6;
+  outline: none;
+  margin-right: 5px;
 }
 
 .m-form {
