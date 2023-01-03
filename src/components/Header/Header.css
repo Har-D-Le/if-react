@@ -242,7 +242,7 @@ input::-webkit-calendar-picker-indicator {
   color: #ffffff;
 }
 
-.form__filter-people-focus {
+.form-filter-people-focus {
 width: 13.6rem;
 background-color: #ffffff;
 flex-direction: column;
@@ -254,13 +254,13 @@ right: 12rem;
 top: 5rem;
 }
 
-.form__filter-div {
+.form-filter-div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
 }
 
-.form__filter-div input {
+.form-filter-div input {
   width: 19px;
   height: 29px;
   border: none;

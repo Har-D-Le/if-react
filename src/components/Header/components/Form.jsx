@@ -31,7 +31,6 @@ function Form({ hotelData, setHotelData, handleSearch }) {
   return (
     <form className="desktop-form" action="/" method="GET" onSubmit={handleSubmit}>
       <InputDestination
-        lableTransition={destination !== ''}
         value={destination}
         onChange={handleChange}
       />

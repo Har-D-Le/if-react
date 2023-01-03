@@ -96,8 +96,8 @@ function FilterPeople({ people, setPeople }) {
   }, [rooms]);
 
   return (
-    <div className="form__filter-people-focus">
-      <div className="form__filter-div">
+    <div className="form-filter-people-focus">
+      <div className="form-filter-div">
         <div className="filter-label-wrapper">
           <label className="filter-label" htmlFor="adults">Adults</label>
         </div>
@@ -121,7 +121,7 @@ function FilterPeople({ people, setPeople }) {
           </button>
         </div>
       </div>
-      <div className="form__filter-div">
+      <div className="form-filter-div">
         <div className="filter-label-wrapper">
           <label className="filter-label" htmlFor="children">Children</label>
         </div>
@@ -145,9 +145,9 @@ function FilterPeople({ people, setPeople }) {
           </button>
         </div>
       </div>
-      <div className="form__filter-div">
+      <div className="form-filter-div">
         <div className="filter-label-wrapper">
-          <label className="filter-label" htmlFor="rooms">Rooms</label>
+          <label className="filte-label" htmlFor="rooms">Rooms</label>
         </div>
         <div className="filter-btns-wrapper">
           <button

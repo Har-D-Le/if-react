@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 import Hotels from '../Hotels/Hotels';
 import Header from '../Header/Header';
+import url from '../../constants/URL';
 
 function App() {
   const [destinationValue, setDestinationValue] = useState('');
@@ -17,8 +18,6 @@ function App() {
     setDestinationValue(destination);
   };
 
-  const url = new URL('https://if-student-api.onrender.com/api/hotels');
-
   useEffect(() => {
     fetch(`${url}/popular`)
       .then((res) => res.json())
@@ -32,10 +31,9 @@ function App() {
       });
   }, []);
 
-  const handleSearch = useEffect(() => {
-    if (destinationValue) {
+  const handleSearch = useCallback(() => {
       url.searchParams.set('search', `${destinationValue}`);
-      fetch(`${url}`)
+      fetch(url)
         .then((res) => res.json())
         .then((result) => {
           setIsLoading(true);
@@ -45,7 +43,6 @@ function App() {
           setIsLoading(false);
           setError(error);
         });
-    }
   }, [destinationValue]);
 
   if (error) {

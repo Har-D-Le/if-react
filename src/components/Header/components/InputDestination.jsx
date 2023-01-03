@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function InputDestination({ value, onChange, lableTransition }) {
+function InputDestination({ value, onChange}) {
   return (
     <>
       <input
@@ -13,14 +13,13 @@ function InputDestination({ value, onChange, lableTransition }) {
         onChange={onChange}
       />
       <label className="label-destination" htmlFor="destination">
-        {lableTransition ? '' : 'Your destination or hotel name'}
+        { value !== '' ? '' : 'Your destination or hotel name'}
       </label>
     </>
   );
 }
 
 InputDestination.propTypes = {
-  lableTransition: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.string
 };
