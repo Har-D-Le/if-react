@@ -24,8 +24,8 @@ function Form({ hotelData, setHotelData, handleSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setHotelData(destination);
-    setDestination('');
     handleSearch();
+    setDestination('');
   };
 
   return (

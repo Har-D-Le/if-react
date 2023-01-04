@@ -32,17 +32,17 @@ function App() {
   }, []);
 
   const handleSearch = useCallback(() => {
-      url.searchParams.set('search', `${destinationValue}`);
-      fetch(url)
-        .then((res) => res.json())
-        .then((result) => {
-          setIsLoading(true);
-          setAvailableHotels(result);
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          setError(error);
-        });
+          url.searchParams.set('search', `${destinationValue}`);
+          fetch(url)
+              .then((res) => res.json())
+              .then((result) => {
+                  setIsLoading(true);
+                  setAvailableHotels(result);
+              })
+              .catch((error) => {
+                  setIsLoading(false);
+                  setError(error);
+              });
   }, [destinationValue]);
 
   if (error) {
