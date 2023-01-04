@@ -1,5 +1,5 @@
 export  {default as logo} from "./site-logo.svg"
 export  {default as dayNight} from "./day-night.svg"
-export  {default as accountCircle} from "./account_circle.svg"
-export  {default as googleStore} from "./google_play_badge.svg"
-export  {default as appStore} from "./app_store.svg"
+export  {default as accountCircle} from "./account-circle.svg"
+export  {default as googleStore} from "./google-play-badge.svg"
+export  {default as appStore} from "./app-store.svg"

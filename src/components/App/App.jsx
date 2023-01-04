@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 import Hotels from '../Hotels/Hotels';
 import Header from '../Header/Header';
+import url from '../../constants/URL';
 
 function App() {
   const [destinationValue, setDestinationValue] = useState('');
@@ -17,8 +18,6 @@ function App() {
     setDestinationValue(destination);
   };
 
-  const url = new URL('https://if-student-api.onrender.com/api/hotels')
-
   useEffect(() => {
     fetch(`${url}/popular`)
       .then((res) => res.json())
@@ -32,20 +31,18 @@ function App() {
       });
   }, []);
 
-  const handleSearch = useEffect(() => {
-    if (destinationValue) {
-      url.searchParams.set('search', `${destinationValue}`);
-      fetch(`${url}`)
-          .then((res) => res.json())
-          .then((result) => {
-            setIsLoading(true);
-            setAvailableHotels(result);
-          })
-          .catch((error) => {
-            setIsLoading(false);
-            setError(error);
-          });
-    }
+  const handleSearch = useCallback(() => {
+          url.searchParams.set('search', `${destinationValue}`);
+          fetch(url)
+              .then((res) => res.json())
+              .then((result) => {
+                  setIsLoading(true);
+                  setAvailableHotels(result);
+              })
+              .catch((error) => {
+                  setIsLoading(false);
+                  setError(error);
+              });
   }, [destinationValue]);
 
   if (error) {
@@ -58,7 +55,11 @@ function App() {
 
   return (
     <>
-      <Header hotelData={destinationValue} setHotelData={handleDestinationChange} handleSearch={handleSearch} />
+      <Header
+        hotelData={destinationValue}
+        setHotelData={handleDestinationChange}
+        handleSearch={handleSearch}
+      />
       <div className="container">
         {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 
