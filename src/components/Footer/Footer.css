@@ -1,0 +1,46 @@
+ul.content-info {
+  padding-left: 0;
+}
+
+li.head-item-info,
+.item-info {
+  margin-bottom: 23px;
+}
+
+.footer {
+  padding: 0;
+  margin-top: 64px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.info {
+  background: #10367c;
+  padding: 120px 0;
+}
+
+.footer-logo {
+  display: none;
+}
+
+.container-info {
+  margin: 0 auto 64px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-info {
+  list-style: none;
+  width: 33%;
+}
+
+.head-item-info {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.item-info {
+  font-size: 20px;
+  color: #ffffff;
+}
