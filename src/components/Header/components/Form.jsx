@@ -6,30 +6,22 @@ import InputDate from './InputDate';
 import FilterPeople from './FilterPeople';
 import InputPeople from './InputPeople';
 
-function Form({handleSearch}) {
-
+function Form({ handleSearch }) {
   const [destinationValue, setDestinationValue] = useState('');
-
   const [dates, setDates] = useState({ startDate: null, endDate: null });
-
   const [people, setPeople] = useState({
     adults: 1,
     children: 0,
     rooms: 1
   });
-
   const [filter, setFilter] = useState(false);
 
   const handleChange = (e) => setDestinationValue(e.target.value);
 
-  const handleDestinationChange = () => {
-        setDestinationValue(destinationValue);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleDestinationChange(destinationValue);
-    handleSearch;
+    handleSearch(destinationValue);
+    setDestinationValue('')
   };
 
   return (

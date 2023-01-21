@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import '../App/App.css';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
+import '../App/App.css';
 import Hotels from '../Hotels/Hotels';
 import url from '../../constants/URL';
 
-function Home( { destinationValue } ) {
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
+function Home({
+  isLoading, setIsLoading, availableHotels, setError, error
+}) {
   const [defaultHotels, setDefaultHotels] = useState(null);
-  const [availableHotels, setAvailableHotels] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${url}/popular`)
       .then((res) => res.json())
       .then((result) => {
-        setIsLoading(true);
+        setIsLoading(false);
         setDefaultHotels(result);
       })
       .catch((error) => {
@@ -24,25 +24,11 @@ function Home( { destinationValue } ) {
       });
   }, []);
 
-  const handleSearch = useCallback(() => {
-    url.searchParams.set('search', `${destinationValue}`);
-    fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
-        setIsLoading(true);
-        setAvailableHotels(result);
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        setError(error);
-      });
-  }, [destinationValue]);
-
   if (error) {
     return <div>error: {error.message}</div>;
   }
 
-  if (!isLoading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -54,5 +40,13 @@ function Home( { destinationValue } ) {
     </div>
   );
 }
+
+Home.propTypes = {
+  isLoading: PropTypes.bool,
+  setIsLoading: PropTypes.bool,
+  availableHotels: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setError: PropTypes.func,
+  error: PropTypes.string
+};
 
 export default Home;
