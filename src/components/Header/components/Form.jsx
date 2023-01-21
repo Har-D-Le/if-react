@@ -6,32 +6,28 @@ import InputDate from './InputDate';
 import FilterPeople from './FilterPeople';
 import InputPeople from './InputPeople';
 
-function Form({ hotelData, setHotelData, handleSearch }) {
-  const [destination, setDestination] = useState(hotelData);
-
+function Form({ handleSearch }) {
+  const [destinationValue, setDestinationValue] = useState('');
   const [dates, setDates] = useState({ startDate: null, endDate: null });
-
   const [people, setPeople] = useState({
     adults: 1,
     children: 0,
     rooms: 1
   });
-
   const [filter, setFilter] = useState(false);
 
-  const handleChange = (e) => setDestination(e.target.value);
+  const handleChange = (e) => setDestinationValue(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setHotelData(destination);
-    handleSearch();
-    setDestination('');
+    handleSearch(destinationValue);
+    setDestinationValue('')
   };
 
   return (
     <form className="desktop-form" action="/" method="GET" onSubmit={handleSubmit}>
       <InputDestination
-        value={destination}
+        value={destinationValue}
         onChange={handleChange}
       />
       <InputDate dates={dates} setDates={setDates} />
@@ -52,8 +48,6 @@ function Form({ hotelData, setHotelData, handleSearch }) {
 
 Form.propTypes = {
   handleSearch: PropTypes.func,
-  setHotelData: PropTypes.func,
-  hotelData: PropTypes.string
 };
 
 export default Form;

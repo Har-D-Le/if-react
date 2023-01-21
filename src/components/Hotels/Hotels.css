@@ -34,3 +34,13 @@
 .homes-item-location {
   color: #bfbfbf;
 }
+
+.btn-back {
+  margin-top: 24px;
+}
+
+.link-btn-back {
+  cursor: unset;
+  color: #333333;
+  background-color: #ffffff;
+}
