@@ -1,14 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import Navigation from './components/Navigation';
 import Form from './components/Form';
 import url from '../../constants/URL';
+import { AuthContext } from '../../context/context';
 
 import './Header.css';
 import { googleStore, appStore } from '../../../public/images';
 
 function Header({ setIsLoading, setAvailableHotels, setError }) {
+  const { isAuth } = useContext(AuthContext);
+
   const handleSearch = useCallback((searchString) => {
     url.searchParams.set('search', `${searchString}`);
     setIsLoading(true);
@@ -28,7 +31,7 @@ function Header({ setIsLoading, setAvailableHotels, setError }) {
     <section className="start">
       <div className="container">
         <Navigation />
-        <div className="col-12 page">
+        <div className={isAuth ? 'col-12 page' : 'pageNone'}>
           <div className="h1-block">
             <h1>
               Discover stays <br />
@@ -37,7 +40,7 @@ function Header({ setIsLoading, setAvailableHotels, setError }) {
           </div>
           <Form handleSearch={handleSearch} />
         </div>
-        <div className="apps">
+        <div className={isAuth ? 'apps' : 'appsNone'}>
           <img src={googleStore} alt={googleStore} className="google-play" />
           <img src={appStore} alt={appStore} className="app-store" />
         </div>

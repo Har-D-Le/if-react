@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { logo, dayNight, accountCircle } from '../../../../public/images';
+import SignOut from './SignOut';
+import SignIn from './SignIn';
 
 function Navigation() {
   return (
@@ -19,6 +21,8 @@ function Navigation() {
         <a href="/" className="link-nav_account_circle">
           <img src={accountCircle} alt="account icon" className="nav_account_circle" />
         </a>
+        <SignOut />
+        <SignIn />
       </nav>
     </header>
   );

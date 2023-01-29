@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Footer.css';
 
+import { AuthContext } from '../../context/context';
+
 function Footer() {
+  const { isAuth } = useContext(AuthContext);
+
   return (
-    <footer className="info">
+    <footer className={isAuth ? 'info' : 'infoNone'}>
       <div className="container">
         <svg className="footer-logo">
           <use href="#site-logo" />
