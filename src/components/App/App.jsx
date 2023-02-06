@@ -1,21 +1,34 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import UserContext from '../../context/context';
 import Layout from '../../Routes/Layout';
 import Home from '../Home/Home';
 import HotelProfile from '../Hotels/HotelProfile';
-import { AuthContext } from '../../context/context';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [availableHotels, setAvailableHotels] = useState(null);
-  const auth = useMemo(() => ({ isAuth, setIsAuth }), []);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const signIn = useCallback((user) => {
+    setCurrentUser(user);
+  }, []);
+
+  const signOut = () => {
+    setCurrentUser(null);
+  };
+
+  const contextValue = useMemo(() => ({
+    currentUser,
+    signIn,
+    signOut
+  }), [currentUser, signIn]);
 
   return (
-    <AuthContext.Provider
-      value={auth}
+    <UserContext.Provider
+      value={contextValue}
     >
       <BrowserRouter>
         <Routes>
@@ -46,7 +59,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </AuthContext.Provider>
+    </UserContext.Provider>
   );
 }
 

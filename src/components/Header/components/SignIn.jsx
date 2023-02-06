@@ -1,50 +1,37 @@
 import React, { useContext, useState } from 'react';
 
-import { users } from '../../../constants/constans';
-import { AuthContext } from '../../../context/context';
+import UserContext from '../../../context/context';
 
 function SignIn() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const [user, setUser] = useState(null);
+  const { currentUser, signIn } = useContext(UserContext);
 
-  function handleLogin() {
-    if (email && password) {
-      users.forEach((item) => {
-        if (item.email === email.toString() && item.password === password.toString()) {
-          setIsAuth(true);
-        }
-      });
-    }
-  }
+  const handleInputChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
-  function checkEmail(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setEmail(e.target.value);
-  }
-
-  function checkPassword(e) {
-    e.preventDefault();
-    setPassword(e.target.value);
-  }
+    signIn(user);
+  };
 
   return (
-    <div className={isAuth ? 'container-sign-inNone' : 'container-signIn'}>
+    <div className={currentUser ? 'container-sign-inNone' : 'container-signIn'}>
       <h3 className="title-signIn">Sign in</h3>
-      <form className="wrapper-input-value">
+      <form className="wrapper-input-value" onSubmit={handleSubmit}>
         <label className="label-email" htmlFor="email">
           Email address
         </label>
         <input
-          onChange={checkEmail}
+          onChange={handleInputChange}
           className="input-email"
           name="email"
           id="email"
           type="email"
         />
         <label className="label-password" htmlFor="password">Password</label>
-        <input onChange={checkPassword} className="input-password" id="password" />
-        <button onClick={handleLogin} className="btn-signIn" type="reset">
+        <input onChange={handleInputChange} className="input-password" id="password" name="password" />
+        <button className="btn-signIn" type="submit">
           Sign in
         </button>
       </form>

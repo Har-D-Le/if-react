@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import '../App/App.css';
 import Hotels from '../Hotels/Hotels';
 import url from '../../constants/URL';
-import { AuthContext } from '../../context/context';
+import UserContext from '../../context/context';
 
 function Home({
   isLoading, setIsLoading, availableHotels, setError, error
 }) {
   const [defaultHotels, setDefaultHotels] = useState(null);
-  const { isAuth } = useContext(AuthContext);
+  const { currentUser } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +35,7 @@ function Home({
   }
 
   return (
-    <div className={isAuth ? 'container' : 'containerNone'}>
+    <div className={currentUser ? 'container' : 'containerNone'}>
       {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 
       {defaultHotels && <Hotels hotels={defaultHotels.slice(0, 4)} title="Homes guests loves" />}
