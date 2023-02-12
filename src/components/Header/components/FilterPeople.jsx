@@ -10,14 +10,6 @@ function FilterPeople({ people, setPeople }) {
 
   const [selectors, setSelectors] = useState([]);
 
-  function addSelector() {
-    setSelectors([...selectors, { id: Date.now() }]);
-  }
-
-  function removeSelector() {
-    setSelectors(selectors.slice(1));
-  }
-
   const [isDisabled, setDisabled] = useState({
     adultsBtnDec: true,
     adultsBtnInc: false,
@@ -26,6 +18,14 @@ function FilterPeople({ people, setPeople }) {
     roomsBtnDec: true,
     roomsBtnInc: false
   });
+
+  const addSelector = () => {
+    setSelectors([...selectors, { id: Date.now() }]);
+  }
+
+  const removeSelector = () => {
+    setSelectors(selectors.slice(1));
+  }
 
   const handleAdultsDec = () => {
     setAdults((adults) => adults - 1);

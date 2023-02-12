@@ -183,7 +183,7 @@ input::-webkit-calendar-picker-indicator {
   width: 400px;
   position: absolute;
   top: 268px;
-  right: 110%;
+  right: 25rem;
   background-color: #FFFFFF;
 }
 
