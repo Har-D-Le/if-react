@@ -21,7 +21,7 @@ function Form({ handleSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch(destinationValue);
-    setDestinationValue('')
+    setDestinationValue('');
   };
 
   return (
