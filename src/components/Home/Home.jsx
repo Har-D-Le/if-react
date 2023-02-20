@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import '../App/App.css';
 import Hotels from '../Hotels/Hotels';
 import url from '../../constants/URL';
-import UserContext from '../../context/context';
 
 function Home({
   isLoading, setIsLoading, availableHotels, setError, error
 }) {
   const [defaultHotels, setDefaultHotels] = useState(null);
-  const { currentUser } = useContext(UserContext);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +35,7 @@ function Home({
   }
 
   return (
-    <div className={currentUser ? 'container' : 'containerNone'}>
+    <div className={user ? 'container' : 'containerNone'}>
       {availableHotels && <Hotels hotels={availableHotels} title="Available hotels" />}
 
       {defaultHotels && <Hotels hotels={defaultHotels.slice(0, 4)} title="Homes guests loves" />}
