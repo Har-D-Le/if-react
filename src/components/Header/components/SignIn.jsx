@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import UserContext from '../../../context/context';
+import { logInAction } from '../../../store/actions';
 
 function SignIn() {
   const [user, setUser] = useState(null);
-  const { currentUser, signIn } = useContext(UserContext);
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user);
 
   const handleInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -12,7 +14,7 @@ function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(user);
+    dispatch(logInAction(user));
   };
 
   return (

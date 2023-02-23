@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import './Footer.css';
 
-import UserContext from '../../context/context';
-
 function Footer() {
-  const { currentUser } = useContext(UserContext);
+// const user = useSelector(({ user }) => user);
+  const user = useSelector((state) => state.user);
 
   return (
-    <footer className={currentUser ? 'info' : 'infoNone'}>
+    <footer className={user ? 'info' : 'infoNone'}>
       <div className="container">
         <svg className="footer-logo">
           <use href="#site-logo" />

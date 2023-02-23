@@ -19,6 +19,8 @@
     "prettier"
   ],
   "rules": {
+    "default-param-last": "off",
+    "import/prefer-default-export": "off",
     "react/button-has-type": "off",
     "prettier/prettier": 0,
     "react/jsx-filename-extension": "off",

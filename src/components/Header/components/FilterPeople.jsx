@@ -21,11 +21,11 @@ function FilterPeople({ people, setPeople }) {
 
   const addSelector = () => {
     setSelectors([...selectors, { id: Date.now() }]);
-  }
+  };
 
   const removeSelector = () => {
     setSelectors(selectors.slice(1));
-  }
+  };
 
   const handleAdultsDec = () => {
     setAdults((adults) => adults - 1);
