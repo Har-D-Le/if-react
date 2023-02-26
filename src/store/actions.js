@@ -1,15 +1,12 @@
-import { LOG_IN, LOG_OUT } from './actionTypes';
+import { createAction } from 'redux-actions';
 
-export const logInAction = (payload) => ({
+const logInAction = createAction(() => ({
   type: LOG_IN,
   payload,
-});
+}));
 
-export const logOutAction = () => ({
+const logOutAction = createAction(() => ({
   type: LOG_OUT,
-});
+}));
 
-// export default {
-//   logInAction,
-//   logOutAction,
-// };
+export { logInAction, logOutAction };

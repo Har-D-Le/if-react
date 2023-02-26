@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import './Footer.css';
 
 function Footer() {
-// const user = useSelector(({ user }) => user);
   const user = useSelector((state) => state.user);
 
   return (
