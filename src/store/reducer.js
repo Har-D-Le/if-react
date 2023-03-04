@@ -1,20 +1,21 @@
-const initialState = {
-  user: null
+import { combineActions, handleActions } from 'redux-actions';
+import { logInAction, logOutAction } from './actions';
+
+const defaultState = {
+  user: null,
 };
 
-export function logReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'LOG_IN':
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case 'LOG_OUT':
-      return {
-        ...state,
-        user: null,
-      };
-    default:
-      return state;
-  }
-}
+const reducer = handleActions(
+  {
+    [combineActions(logInAction, logOutAction)]: (state, payload) => {
+        console.log(payload, 'payload')
+        return {
+            ...state,
+            user: payload?.payload.user,
+        }
+    },
+  },
+  defaultState,
+);
+
+export { reducer, defaultState };
