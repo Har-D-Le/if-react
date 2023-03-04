@@ -7,10 +7,13 @@ const defaultState = {
 
 const reducer = handleActions(
   {
-    [combineActions(logInAction, logOutAction)]: (state, payload) => ({
-      ...state,
-      user: payload,
-    }),
+    [combineActions(logInAction, logOutAction)]: (state, payload) => {
+        console.log(payload, 'payload')
+        return {
+            ...state,
+            user: payload?.payload.user,
+        }
+    },
   },
   defaultState,
 );
