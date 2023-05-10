@@ -1,5 +1,5 @@
 import { combineActions, handleActions } from 'redux-actions';
-import { logInAction, logOutAction } from './actions';
+import { logInAction, logOutAction } from '../actions';
 
 const defaultState = {
   user: null,
