@@ -1,6 +1,5 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions';
 
-//actions
 import {
   setDestinationInfo,
   setDateFromInfo,
@@ -9,55 +8,40 @@ import {
   setChildrenInfo,
   setRoomsInfo,
   setChildrenAge,
-} from '../actions'
+} from '../actions';
 
-//constants
-import { initialFormState } from '../constants/initialState'
+import { initialFormState } from '../constants/initialState';
 
 export const formReducer = handleActions(
   {
-    [setDestinationInfo]: (state, { payload: search }) => {
-      return {
-        ...state,
-        search,
-      }
-    },
-    [setDateFromInfo]: (state, { payload: dateFrom }) => {
-      return {
-        ...state,
-        dateFrom,
-      }
-    },
-    [setDateToInfo]: (state, { payload: dateTo }) => {
-      return {
-        ...state,
-        dateTo,
-      }
-    },
-    [setAdultsInfo]: (state, { payload: adults }) => {
-      return {
-        ...state,
-        adults,
-      }
-    },
-    [setChildrenInfo]: (state, { payload: children }) => {
-      return {
-        ...state,
-        children,
-      }
-    },
-    [setRoomsInfo]: (state, { payload: rooms }) => {
-      return {
-        ...state,
-        rooms,
-      }
-    },
-    [setChildrenAge]: (state, { payload: childrenAge }) => {
-      return {
-        ...state,
-        childrenAge,
-      }
-    },
+    [setDestinationInfo]: (state, { payload: search }) => ({
+      ...state,
+      search,
+    }),
+    [setDateFromInfo]: (state, { payload: dateFrom }) => ({
+      ...state,
+      dateFrom,
+    }),
+    [setDateToInfo]: (state, { payload: dateTo }) => ({
+      ...state,
+      dateTo,
+    }),
+    [setAdultsInfo]: (state, { payload: adults }) => ({
+      ...state,
+      adults,
+    }),
+    [setChildrenInfo]: (state, { payload: children }) => ({
+      ...state,
+      children,
+    }),
+    [setRoomsInfo]: (state, { payload: rooms }) => ({
+      ...state,
+      rooms,
+    }),
+    [setChildrenAge]: (state, { payload: childrenAge }) => ({
+      ...state,
+      childrenAge,
+    }),
   },
   initialFormState,
-)
+);

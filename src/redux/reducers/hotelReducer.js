@@ -1,10 +1,10 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions';
 
-//actions
-import { setAvailableHotels } from '../actions'
+// actions
+import { setAvailableHotels } from '../actions';
 
-//constants
-import { initialHotelState } from '../constants/initialState'
+// constants
+import { initialHotelState } from '../constants/initialState';
 
 export const hotelReducer = handleActions(
   {
@@ -14,4 +14,4 @@ export const hotelReducer = handleActions(
     }),
   },
   initialHotelState,
-)
+);

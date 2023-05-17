@@ -5,17 +5,17 @@ const defaultState = {
   user: null,
 };
 
-const reducer = handleActions(
+const userReducer = handleActions(
   {
     [combineActions(logInAction, logOutAction)]: (state, payload) => {
-        console.log(payload, 'payload')
-        return {
-            ...state,
-            user: payload?.payload.user,
-        }
+      console.log(payload, 'payload');
+      return {
+        ...state,
+        user: payload?.payload.user,
+      };
     },
   },
   defaultState,
 );
 
-export { reducer, defaultState };
+export { userReducer };

@@ -1,4 +1,4 @@
-import { createActions } from 'redux-actions'
+import { createActions } from 'redux-actions';
 
 export const {
   getAvailableHotels,
@@ -6,4 +6,4 @@ export const {
 } = createActions(
   'GET_AVAILABLE_HOTELS',
   'SET_AVAILABLE_HOTELS',
-)
+);

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import url from '../../constants/URL';
 
 function HotelProfile() {
   const [HotelProfile, setHotelProfile] = useState([]);
   const { hotelId } = useParams();
 
   useEffect(() => {
-    fetch(`https://if-student-api.onrender.com/api/hotels/${hotelId}`)
+    fetch(`${url}/${hotelId}`)
       .then((response) => response.json())
       .then((result) => {
         setHotelProfile(result);

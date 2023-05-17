@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../../public/images';
-import { logOutAction } from '../../../store/actions';
+import { logOutAction } from '../../../redux/actions/userActions';
 
 function SignOut({ isShown }) {
   const dispatch = useDispatch();

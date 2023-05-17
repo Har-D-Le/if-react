@@ -1,6 +1,6 @@
 export const initialHotelState = {
   available: [],
-}
+};
 
 export const initialFormState = {
   search: '',
@@ -10,4 +10,4 @@ export const initialFormState = {
   children: 0,
   childrenAge: [],
   rooms: 1,
-}
+};

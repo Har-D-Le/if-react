@@ -1,4 +1,4 @@
-import { createActions } from 'redux-actions'
+import { createActions } from 'redux-actions';
 
 export const {
   setDestinationInfo,
@@ -16,4 +16,4 @@ export const {
   'SET_CHILDREN_INFO',
   'SET_ROOMS_INFO',
   'SET_CHILDREN_AGE',
-)
+);

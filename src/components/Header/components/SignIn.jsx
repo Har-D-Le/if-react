@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { logInAction } from '../../../store/actions';
+import { logInAction } from '../../../redux/actions/userActions';
 
 function SignIn() {
   const [user, setUser] = useState(null);

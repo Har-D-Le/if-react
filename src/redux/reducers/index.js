@@ -1,14 +1,16 @@
-import { combineReducers } from 'redux'
-import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { hotelReducer } from './hotelReducer'
-import { formReducer } from './formReducer'
+import { hotelReducer } from './hotelReducer';
+import { formReducer } from './formReducer';
+import { userReducer } from './userReducer';
 
 const rootReducer = combineReducers({
+  log: userReducer,
   hotels: hotelReducer,
   form: formReducer,
-})
+});
 
 export default persistReducer(
   {
@@ -16,4 +18,4 @@ export default persistReducer(
     storage,
   },
   rootReducer,
-)
+);
