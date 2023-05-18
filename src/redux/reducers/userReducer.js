@@ -7,11 +7,11 @@ const defaultState = {
 
 const userReducer = handleActions(
   {
-    [combineActions(logInAction, logOutAction)]: (state, payload) => {
-      console.log(payload, 'payload');
-      return {
+    [combineActions(logInAction, logOutAction)]: (state, action) => {
+      debugger
+        return {
         ...state,
-        user: payload?.payload.user,
+        user: action.payload,
       };
     },
   },

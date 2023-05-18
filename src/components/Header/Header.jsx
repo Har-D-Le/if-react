@@ -50,9 +50,9 @@ function Header({ setIsLoading, setAvailableHotels, setError }) {
 }
 
 Header.propTypes = {
-  setIsLoading: PropTypes.bool,
-  setAvailableHotels: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setError: PropTypes.func
+  setIsLoading: PropTypes.func.isRequired,
+  setAvailableHotels: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired
 };
 
 export default Header;

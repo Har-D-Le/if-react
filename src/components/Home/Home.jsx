@@ -45,8 +45,8 @@ function Home({
 
 Home.propTypes = {
   isLoading: PropTypes.bool,
-  setIsLoading: PropTypes.bool,
-  availableHotels: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setIsLoading: PropTypes.func,
+  availableHotels: PropTypes.arrayOf(PropTypes.object),
   setError: PropTypes.func,
   error: PropTypes.string
 };

@@ -7,7 +7,7 @@ import { formReducer } from './formReducer';
 import { userReducer } from './userReducer';
 
 const rootReducer = combineReducers({
-  log: userReducer,
+  user: userReducer,
   hotels: hotelReducer,
   form: formReducer,
 });

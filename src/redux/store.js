@@ -13,10 +13,10 @@ const composeEnhancers = composeWithDevTools({});
 const configureStore = () => {
   const store = createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(...middleWare)),
+    // composeEnhancers(applyMiddleware(...middleWare)),
   );
 
-  sagaMiddleware.run(hotelSaga);
+  // sagaMiddleware.run(hotelSaga);
 
   const persistor = persistStore(store);
 

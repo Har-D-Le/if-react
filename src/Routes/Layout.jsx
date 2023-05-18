@@ -21,8 +21,8 @@ function Layout({ setIsLoading, setAvailableHotels, setError }) {
 }
 
 Layout.propTypes = {
-  setIsLoading: PropTypes.bool,
-  setAvailableHotels: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setIsLoading: PropTypes.func.isRequired,
+  setAvailableHotels: PropTypes.func.isRequired,
   setError: PropTypes.func
 };
 
